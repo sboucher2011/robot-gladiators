@@ -9,7 +9,7 @@ var enemyAttack = 12;
 
 var fight = function(enemyName) {
 
-    while(enemyHealth > 0) {
+    while(enemyHealth > 0 && playerHealth > 0) {
         //prompt use to see if they would like to fight
         var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
 
@@ -23,9 +23,10 @@ var fight = function(enemyName) {
         
             // check enemy's health
             if (enemyHealth <= 0) {
-            window.alert(enemyName + " has died!");
+                window.alert(enemyName + " has died!");
+                break;
             } else {
-            window.alert(enemyName + " still has " + enemyHealth + " health left.");
+                window.alert(enemyName + " still has " + enemyHealth + " health left.");
             }
         
             // remove player's health by subtracting the amount set in the enemyAttack variable
@@ -36,9 +37,10 @@ var fight = function(enemyName) {
         
             // check player's health
             if (playerHealth <= 0) {
-            window.alert(playerName + " has died!");
+                window.alert(playerName + " has died!");
+                break;
             } else {
-            window.alert(playerName + " still has " + playerHealth + " health left.");
+                window.alert(playerName + " still has " + playerHealth + " health left.");
             }
             // if player choses to skip
         } else if (promptFight === "skip" || promptFight === "SKIP") {
